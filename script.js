@@ -2,9 +2,9 @@
 
 const API = "fe4feefa8543e06d4f3c66d92c61b69c";
 
+const timeEl = document.createElement("h3");
 const dayEl = document.querySelector(".default_day");
 const dateEl = document.querySelector(".default_date");
-const timeEl = document.createElement("h3");
 timeEl.classList.add("default_time");
 dateEl.insertAdjacentElement("afterend", timeEl);
 
