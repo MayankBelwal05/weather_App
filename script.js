@@ -120,45 +120,103 @@ function convertTimestampToTime(timestamp) {
 }
 
 // display the right side content
+
 function rightSideContent(result) {
   const sunriseTime = convertTimestampToTime(result.sys.sunrise);
   const sunsetTime = convertTimestampToTime(result.sys.sunset);
 
   return `
+  
 <div class="headLine">
-  <h3 class="headLineIn">Weather in<span>&nbsp;&nbsp;</span><span class="cityName">${result.name}</span></h3>
+  <h3 class="headLineIn">Weather Stats in<span>&nbsp;&nbsp;</span><span class="cityName">${result.name}, ${result.sys.country}</span></h3>
 </div>
-
-  <div class="content">
+    <div class="info-box">
+      <div class="content">
+        <div class="icon">📍</div>
+        <div class="text">
           <p class="title">LOCATION:</p>
-          <span class="value">${result.name} ,${result.sys.country}</span>
+          <span class="value">${result.name}, ${result.sys.country}</span>
         </div>
-        <div class="content">
+      </div>
+      <div class="content">
+        <div class="icon">🌡️</div>
+        <div class="text">
           <p class="title">TEMP</p>
-          <span class="value"> 🌡️ ${Math.round(result.main.temp - 275.15)}°C</span>
+          <span class="value">${Math.round(result.main.temp - 275.15)}°C</span>
         </div>
-        <div class="content">
+      </div>
+      <div class="content">
+        <div class="icon">💧</div>
+        <div class="text">
           <p class="title">HUMIDITY</p>
-          <span class="value"> ❄️ ${result.main.humidity}%</span>
+          <span class="value">${result.main.humidity}%</span>
         </div>
-        <div class="content">
-          <p class="title">WIND SPEED</p>
-          <span class="value">🌫️ ${result.wind.speed} Km/h</span>
-        </div>
-        <div class="content">
+      </div>
+     
+      <div class="content">
+        <div class="icon">👁️</div>
+        <div class="text">
           <p class="title">VISIBILITY</p>
-          <span class="value"> 👁️ ${Math.round(result.visibility)/1000 }  km </span>
+          <span class="value">${Math.round(result.visibility / 1000)} km</span>
         </div>
-        <div class="content">
+      </div>
+      <div class="content">
+        <div class="icon">🌅</div>
+        <div class="text">
           <p class="title">SUNRISE</p>
-          <span class="value"> ☀️ ${sunriseTime} </span>
+          <span class="value">${sunriseTime}</span>
         </div>
-        <div class="content">
+      </div>
+      <div class="content">
+        <div class="icon">🌇</div>
+        <div class="text">
           <p class="title">SUNSET</p>
-          <span class="value"> 🟠 ${sunsetTime} </span>
+          <span class="value">${sunsetTime}</span>
         </div>
-         `;
+      </div>
+    </div>
+  `;
 }
+
+// function rightSideContent(result) {
+//   const sunriseTime = convertTimestampToTime(result.sys.sunrise);
+//   const sunsetTime = convertTimestampToTime(result.sys.sunset);
+
+//   return `
+// <div class="headLine">
+//   <h3 class="headLineIn">Weather in<span>&nbsp;&nbsp;</span><span class="cityName">${result.name}</span></h3>
+// </div>
+
+//   <div class="content">
+//           <p class="title">LOCATION:</p>
+//           <span class="value">${result.name} ,${result.sys.country}</span>
+//         </div>
+//         <div class="content">
+//           <p class="title">TEMP</p>
+//           <span class="value"> 🌡️ ${Math.round(result.main.temp - 275.15)}°C</span>
+//         </div>
+//         <div class="content">
+//           <p class="title">HUMIDITY</p>
+//           <span class="value"> ❄️ ${result.main.humidity}%</span>
+//         </div>
+//         <div class="content">
+//           <p class="title">WIND SPEED</p>
+//           <span class="value">🌫️ ${result.wind.speed} Km/h</span>
+//         </div>
+//         <div class="content">
+//           <p class="title">VISIBILITY</p>
+//           <span class="value"> 👁️ ${Math.round(result.visibility)/1000 }  km </span>
+//         </div>
+//         <div class="content">
+//           <p class="title">SUNRISE</p>
+//           <span class="value"> ☀️ ${sunriseTime} </span>
+//         </div>
+//         <div class="content">
+//           <p class="title">SUNSET</p>
+//           <span class="value"> 🟠 ${sunsetTime} </span>
+//         </div>
+//          `;
+// }
 
 async function displayForeCast(lat, long) {
   const ForeCast_API = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=${API}`;
