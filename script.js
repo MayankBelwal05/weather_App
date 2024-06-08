@@ -232,7 +232,7 @@ async function displayForeCast(lat, long) {
   });
   console.log(daysForecast);
 
-  daysForecast.reverse().forEach((content, indx) => { // Reverse the order
+  daysForecast.reverse().forEach((content, indx) => { 
     if (indx <= 3) {
       listContentEl.insertAdjacentHTML("afterbegin", forecast(content));
     }

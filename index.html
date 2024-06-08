@@ -40,7 +40,7 @@
             </form>
 
             <div class="day_info">
-                <img class="mainImage" src="./perfect-day.svg" alt="">
+                <img class="mainImage" src="./assets/perfect-day.svg" alt="">
                 <p class="tagline">Sunshine is delicious, Rain is refreshing, Wind braces us up, Snow is exhilarating ...</p>
             </div>
 
@@ -48,28 +48,31 @@
                 <ul>
                     <li>
                       <img src="https://openweathermap.org/img/wn/10d@2x.png" />
-                      <span>Sat</span>
+                      <span>Sun</span>
                       <span class="day_temp">23°C</span>
                     </li>
                     <li>
                       <img src="https://openweathermap.org/img/wn/10d@2x.png" />
-                      <span>Sat</span>
+                      <span>Mon</span>
                       <span class="day_temp">23°C</span>
                     </li>
                     <li>
                       <img src="https://openweathermap.org/img/wn/10d@2x.png" />
-                      <span>Sat</span>
+                      <span>Tue</span>
                       <span class="day_temp">23°C</span>
                     </li>
                     <li>
                       <img src="https://openweathermap.org/img/wn/10d@2x.png" />
-                      <span>Sat</span>
+                      <span>Wed</span>
                       <span class="day_temp">23°C</span>
                     </li>
                   </ul>
             </div>
         </div>
     </div>
+</div>
+<div class="footer">
+    <p>Created by 🌩️<a href="https://github.com/MayankBelwal05"> Mayank Belwal</a></p>
 </div>
 
 <!-- Bootstrap JS -->
@@ -80,7 +83,7 @@
 
 <script src="script.js"></script>
 <script>
-    // JavaScript code for obtaining weather data for user's current location
+   
     document.addEventListener('DOMContentLoaded', () => {
         const locationForm = document.getElementById('locationForm');
         const locationInput = document.getElementById('locationInput');
@@ -97,13 +100,13 @@
             }
         };
 
-        // Function to handle form submission
+       
         locationForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const location = locationInput.value.trim();
             if (location !== "") {
                 const weatherData = await getWeatherByLocation(location);
-                // Handle weather data here
+                
                 console.log(weatherData);
             } else {
                 console.log("Please enter a location.");
