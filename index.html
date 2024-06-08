@@ -1,95 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-   <!-- CodingManish -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>weather app</title>
+    <title>Weather App</title>
+    <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <!-- Navbar -->
-  <div class="navbar">
-    <h2>Weather App</h2>
-  </div>
-    <div class="container">
-        <div class="wrapper">
-          <div class="img_section">
+<div class="navbar">
+    <h2> 🌥️ Weather App</h2>
+</div>
+
+<div class="container">
+    <div class="wrapper">
+        <div class="img_section">
             <div class="default_info">
-              <h2 class="default_day">Sunday</h2>
-              <span class="default_date">18 September 2023 </span>
-              <div class="icons">
-                <img src="https://openweathermap.org/img/wn/10d@4x.png" alt="" />
-                <h2 class="weather_temp">22°C</h2>
-                <h3 class="cloudtxt">Overcast Clouds</h3>
-              </div>
+                <h2 class="default_day">Sunday</h2>
+                <span class="default_date">18 September 2023 </span>
+                <!-- <span class="default_time">10:00:00 AM</span> -->
+                <div class="icons">
+                    <img src="https://openweathermap.org/img/wn/10d@4x.png" alt="" />
+                    <h2 class="weather_temp">22°C</h2>
+                    <h3 class="cloudtxt">Overcast Clouds</h3>
+                </div>
             </div>
-          </div>
-          <div class="content_section">
-            <form>
-              <input
-                type="text"
-                placeholder="📍 Search Location"
-                class="input_field"
-              />
-              <button type="submit" class="btn_search">Search</button>
+        </div>
+        <div class="content_section">
+            <form id="locationForm">
+                <input
+                    type="text"
+                    placeholder="📍 Search Location"
+                    class="input_field"
+                    id="locationInput"
+                />
+                <button type="submit" class="btn_search">Search</button>
             </form>
 
             <div class="day_info">
-              <img class="mainImage" src="./perfect-day.svg" alt="">
-              <p class="tagline">Sunshine is delicious, Rain is refreshing, Wind braces us up, Snow is exhilarating ...</p>
-              <!-- <div class="content">
-                <p class="title">LOCATION:</p>
-                <span class="value">United Kingdom</span>
-              </div>
-              
-                <div class="content">
-                    <p class="title">TEMP</p>
-                    <span class="value"> 🌡️ 23°C</span>
-                  </div>
-                  <div class="content">
-                    <p class="title">HUMIDITY</p>
-                    
-                    <span class="value"> ❄️ 2%</span>
-                  </div>
-                  <div class="content">
-                    <p class="title">WIND SPEED</p>
-                    <span class="value"> 🌫️ 2.92 Km/h</span>
-              </div> -->
+                <img class="mainImage" src="./perfect-day.svg" alt="">
+                <p class="tagline">Sunshine is delicious, Rain is refreshing, Wind braces us up, Snow is exhilarating ...</p>
             </div>
 
             <div class="list_content">
-              <ul>
-                <li>
-                  <img src="https://openweathermap.org/img/wn/10d@2x.png" />
-                  <span>Sat</span>
-                  <span class="day_temp">23°C</span>
-                </li>
-                <li>
-                  <img src="https://openweathermap.org/img/wn/10d@2x.png" />
-                  <span>Sat</span>
-                  <span class="day_temp">23°C</span>
-                </li>
-                <li>
-                  <img src="https://openweathermap.org/img/wn/10d@2x.png" />
-                  <span>Sat</span>
-                  <span class="day_temp">23°C</span>
-                </li>
-                <li>
-                  <img src="https://openweathermap.org/img/wn/10d@2x.png" />
-                  <span>Sat</span>
-                  <span class="day_temp">23°C</span>
-                </li>
-              </ul>
+                <ul>
+                    <li>
+                      <img src="https://openweathermap.org/img/wn/10d@2x.png" />
+                      <span>Sat</span>
+                      <span class="day_temp">23°C</span>
+                    </li>
+                    <li>
+                      <img src="https://openweathermap.org/img/wn/10d@2x.png" />
+                      <span>Sat</span>
+                      <span class="day_temp">23°C</span>
+                    </li>
+                    <li>
+                      <img src="https://openweathermap.org/img/wn/10d@2x.png" />
+                      <span>Sat</span>
+                      <span class="day_temp">23°C</span>
+                    </li>
+                    <li>
+                      <img src="https://openweathermap.org/img/wn/10d@2x.png" />
+                      <span>Sat</span>
+                      <span class="day_temp">23°C</span>
+                    </li>
+                  </ul>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
+<script src="script.js"></script>
+<script>
+    // JavaScript code for obtaining weather data for user's current location
+    document.addEventListener('DOMContentLoaded', () => {
+        const locationForm = document.getElementById('locationForm');
+        const locationInput = document.getElementById('locationInput');
 
+        // Function to fetch weather data based on location
+        const getWeatherByLocation = async (location) => {
+            try {
+                const API_KEY = "fe4feefa8543e06d4f3c66d92c61b69c";
+                const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEY}`);
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error('Error fetching weather data:', error);
+            }
+        };
 
-
-    <script src="script.js"></script>
+        // Function to handle form submission
+        locationForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const location = locationInput.value.trim();
+            if (location !== "") {
+                const weatherData = await getWeatherByLocation(location);
+                // Handle weather data here
+                console.log(weatherData);
+            } else {
+                console.log("Please enter a location.");
+            }
+        });
+    });
+</script>
 </body>
 </html>

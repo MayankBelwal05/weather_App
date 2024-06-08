@@ -36,9 +36,9 @@ body {
 
   /* Centered text */
   .navbar h2 {
-    font-weight: bold;
+    /* font-weight: bold; */
     color: white;
-    margin-left: 40px;
+    margin-left: 20px;
   }
 
   /* Content container styles (just for demonstration) */

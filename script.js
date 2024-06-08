@@ -67,6 +67,8 @@ btnEl.addEventListener("click", (e) => {
     inputEl.value = "";
     findLocation(Search);
   } else {
+   
+    alert("Please Enter City or Country Name")
     console.log("Please Enter City or Country Name");
   }
 });
