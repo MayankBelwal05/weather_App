@@ -9,7 +9,6 @@ timeEl.classList.add("default_time");
 dateEl.insertAdjacentElement("afterend", timeEl);
 
 const btnEl = document.querySelector(".btn_search");
-const locationBtn = get('.location-btn')
 const inputEl = document.querySelector(".input_field");
 
 const iconsContainer = document.querySelector(".icons");
@@ -74,16 +73,6 @@ btnEl.addEventListener("click", (e) => {
   }
 });
 
-locationBtn.addEventListener('click', () => {
-  navigator.geolocation.getCurrentPosition((position) => {
-      let lat = position.coords.latitude;
-      let lon = position.coords.longitude;
-      getWeatherData(null, lat, lon)
-      displayForeCast(lat,lon);
-  })
-  
-})
-
 async function findLocation(name) {
   iconsContainer.innerHTML = "";
   dayInfoEl.innerHTML = "";
@@ -116,27 +105,6 @@ async function findLocation(name) {
     }
   } catch (error) {}
 }
-
-//location button data
-
-const getWeatherData = async (city, lat, lon) => {
-  let url = ''
-  if (city) {
-      url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`
-  } else {
-      url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}&units=metric`;
-  }
-
-  const res = await fetch(url)
-  const data = await res.json()
-  const { lat: latitude, lon: longitude } = data.coord
-  const apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${key}&units=metric`;
-  const res2 = await fetch(apiUrl)
-  const forecastData = await res2.json()
-
-  displayWeather(data, forecastData)
-}
-
 
 // display image content and temp
 function displayImageContent(data) {
