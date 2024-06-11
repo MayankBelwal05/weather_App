@@ -97,6 +97,9 @@ body {
 
 .content_section form {
   margin: 1.5rem 0;
+  position: relative;
+  display: flex;
+  gap: 10px;
   position: relative;@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Ruda:wght@400;600;700&display=swap");
 
   * {
@@ -852,12 +855,13 @@ body {
   width: calc(84% - 40px);
   outline: none;
   background: transparent;
-  border: 1px solid #37474f;
+  border: 1px solid #68828f;
   border-radius: 5px;
-  padding: 0.4rem 1rem; /* Adjusted vertical padding */
+  padding: 0.4rem 1rem;
+  /* Adjusted vertical padding */
   font-family: inherit;
   color: #8dfc0e;
-  font-size: 1.7rem;
+  font-size: 1rem;
   margin-right: 10px;
 }
 
@@ -868,17 +872,19 @@ body {
 }
 
 .content_section form button {
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
+  /* border-top-right-radius: 8px; */
+  /* border-bottom-right-radius: 8px; */
+  border-radius: 15px;
   padding: 0.7rem 0.7rem;
   font-family: inherit;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   outline: none;
   border: none;
   background: #31af85;
   color: #fff;
   cursor: pointer;
 }
+
 
 .day_info .mainImage {
   height: 180px;
@@ -977,14 +983,16 @@ body {
   flex-direction: column;
   align-items: center;
   margin-left: 15px;
-  margin-bottom: 10px; /* Adds a gap of 10px between each item */
+  margin-bottom: 10px;
+  /* Adds a gap of 10px between each item */
   border-radius: 1rem;
   transition: all 0.3s ease-in;
   border: 2px solid rgb(158, 196, 101);
 }
 
 .list_content ul li:last-child {
-  margin-bottom: 0; /* Ensures the last item does not have extra space at the bottom */
+  margin-bottom: 0;
+  /* Ensures the last item does not have extra space at the bottom */
 }
 
 .list_content ul li:hover {
@@ -1086,14 +1094,14 @@ body {
 }
 
 @media screen and (max-width: 480px) {
- 
+
   .navbar h2 {
     text-align: center;
-   display: flex;
-   justify-content: center;
+    display: flex;
+    justify-content: center;
     font-size: 1.5rem;
   }
- 
+
   .default_info h2 {
     font-size: 1.8rem;
   }
