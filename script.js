@@ -249,7 +249,7 @@ function displayForecastContent(content) {
     <li>
       <div class="day">${dayOfWeek}</div>
       <div class="icons">
-        <img src="https://openweathermap.org/img/wn/${content.weather[0].icon}@2x.png" alt="" />
+        <img src="https://openweathermap.org/img/wn/${content.weather[0].icon}@2x.png"/>
       </div>
       <div class="temp">${Math.round(content.main.temp - 273.15)}°C</div>
     </li>
@@ -266,4 +266,4 @@ function displayWeather(data, forecastData) {
 }
 
 // Initialize the page with a default location (e.g., "New York")
-findLocation("goa");
+findLocation("New York");
